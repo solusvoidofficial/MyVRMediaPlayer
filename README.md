@@ -1,6 +1,6 @@
 # My VR Media Player — Website
 
-[![Deploy to GitHub Pages](https://github.com/solusvoidofficial/web-MyVRMediaPlayer/actions/workflows/pages.yml/badge.svg)](https://github.com/solusvoidofficial/web-MyVRMediaPlayer/actions/workflows/pages.yml)
+[![Deploy to GitHub Pages](https://github.com/solusvoidofficial/web-MyVRMediaPlayer/actions/workflows/pages.yml/badge.svg)](https://github.com/solusvoidofficial/MyVRMediaPlayer/actions/workflows/pages.yml)
 
 Public website for **My VR Media Player** (`com.solusvoid.myvrplayer`) by **SolusVoid** — an offline-first local VR video player for Android.
 
