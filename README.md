@@ -1,10 +1,10 @@
 # My VR Media Player — Website
 
-[![Deploy to GitHub Pages](https://github.com/solusvoidofficial/web-MyVRMediaPlayer/actions/workflows/pages.yml/badge.svg)](https://github.com/solusvoidofficial/MyVRMediaPlayer/actions/workflows/pages.yml)
+[![Deploy to GitHub Pages](https://github.com/solusvoidofficial/MyVRMediaPlayer/actions/workflows/pages.yml/badge.svg)](https://github.com/solusvoidofficial/MyVRMediaPlayer/actions/workflows/pages.yml)
 
 Public website for **My VR Media Player** (`com.solusvoid.myvrplayer`) by **SolusVoid** — an offline-first local VR video player for Android.
 
-**Live site:** https://solusvoidofficial.github.io/web-MyVRMediaPlayer/
+**Live site:** https://solusvoidofficial.github.io/MyVRMediaPlayer/
 
 ## Contents
 
@@ -39,7 +39,7 @@ One-time repo setting: **Settings → Pages → Build and deployment → Source:
 - `.nojekyll` must stay (empty) so Pages serves files as-is (`app-ads.txt` as `text/plain`).
 - All inter-page links are **relative** (`./`, `../`), so moving to a custom domain later needs 0 HTML edits.
 - `app-ads.txt` is still `pub-XXXXXXXXXXXXXXXX` (placeholder). To go live: replace with the real AdMob publisher ID, push, wait ±24h for crawl, then verify:
-  `curl -I https://solusvoidofficial.github.io/web-MyVRMediaPlayer/app-ads.txt` → `200` + `content-type: text/plain`.
+  `curl -I https://solusvoidofficial.github.io/MyVRMediaPlayer/app-ads.txt` → `200` + `content-type: text/plain`.
 - Canonical URLs for store listings:
   - Privacy Policy (Play Console): `/privacy/`
   - Terms (in-app Legal): `/terms/`
