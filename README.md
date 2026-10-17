@@ -15,7 +15,6 @@ Public website for **My VR Media Player** (`com.solusvoid.myvrplayer`) by **Solu
 | `/privacy.html` (alias redirect) | `privacy.html` |
 | `/terms/` (Terms of Use, for in-app Legal) | `terms/index.html` |
 | `/licenses/` (open-source attribution) | `licenses/index.html` |
-| `/app-ads.txt` | `app-ads.txt` (placeholder pub-ID) |
 | `/robots.txt` | `robots.txt` |
 | `/404.html` | `404.html` |
 
@@ -36,10 +35,10 @@ One-time repo setting: **Settings → Pages → Build and deployment → Source:
 
 ## Notes
 
-- `.nojekyll` must stay (empty) so Pages serves files as-is (`app-ads.txt` as `text/plain`).
+- `.nojekyll` must stay (empty) so Pages serves files as-is.
 - All inter-page links are **relative** (`./`, `../`), so moving to a custom domain later needs 0 HTML edits.
-- `app-ads.txt` is still `pub-XXXXXXXXXXXXXXXX` (placeholder). To go live: replace with the real AdMob publisher ID, push, wait ±24h for crawl, then verify:
-  `curl -I https://solusvoidofficial.github.io/MyVRMediaPlayer/app-ads.txt` → `200` + `content-type: text/plain`.
+- `app-ads.txt` is intentionally **not** hosted in this repo: AdMob crawls it at the **root of the developer-website domain** (e.g. `https://solusvoidofficial.github.io/app-ads.txt`), which a project-page repo cannot serve. To publish it, create the `solusvoidofficial.github.io` user-site repo (or use a custom domain) containing:
+  `google.com, pub-5600327675311414, DIRECT, f08c47fec0942fa0` (real AdMob publisher ID), then verify: `curl -I <domain-root>/app-ads.txt` → `200` + `content-type: text/plain`.
 - Canonical URLs for store listings:
   - Privacy Policy (Play Console): `/privacy/`
   - Terms (in-app Legal): `/terms/`

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Open-Source Licenses — My VR Media Player</title>
-  <meta name="description" content="Open-source attribution for My VR Media Player: libVLC LGPL-2.1, FFmpeg LGPL, Apache-2.0 components, and proprietary notice.">
+  <meta name="description" content="Open-source attribution for My VR Media Player: libVLC LGPL-2.1, Apache-2.0 components, Google SDKs, and proprietary notice.">
   <link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -37,16 +37,14 @@
         <h2>1. LGPL-2.1 components</h2>
         <h3>libVLC — org.videolan.android:libvlc-all:3.7.1</h3>
         <p>Copyright VideoLAN and contributors. License: <strong>GNU Lesser General Public License v2.1</strong>. Source: <a href="https://code.videolan.org/videolan/libvlcjni">code.videolan.org/videolan/libvlcjni</a>. License text: <a href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html">gnu.org/licenses/old-licenses/lgpl-2.1.en.html</a>. Linked as prebuilt AAR; app code is a separate work via the public Java API.</p>
-        <h3>FFmpeg (via FFmpegMediaMetadataRetriever native)</h3>
-        <p>Copyright FFmpeg team and contributors. License: <strong>LGPL v2.1</strong> (built without enable-gpl / enable-nonfree). Source: <a href="https://ffmpeg.org">ffmpeg.org</a> and <a href="https://github.com/wseemann/FFmpegMediaMetadataRetriever">github.com/wseemann/FFmpegMediaMetadataRetriever</a>. Used in this app for thumbnail fallback only; media content is never uploaded.</p>
-        <h3>FFmpegMediaMetadataRetriever wrapper 1.0.14</h3>
-        <p>Copyright © 2025 William Seemann. License: <strong>Apache License 2.0</strong>. Source: <a href="https://github.com/wseemann/FFmpegMediaMetadataRetriever">GitHub</a>. License text: <a href="https://www.apache.org/licenses/LICENSE-2.0">apache.org/licenses/LICENSE-2.0</a>.</p>
+        <h3>FFmpeg / FFmpegMediaMetadataRetriever — removed</h3>
+        <p>Earlier builds used FFmpeg through <code>FFmpegMediaMetadataRetriever 1.0.14</code> (LGPL v2.1 / Apache-2.0, © FFmpeg team and William Seemann) for thumbnail fallback. It was <strong>removed for 16KB page-size Play compliance</strong>; thumbnails now use the Android platform (<code>ThumbnailUtils</code> / <code>MediaMetadataRetriever</code> → Coil). <strong>No FFmpeg binaries are shipped in current builds.</strong></p>
       </section>
 
       <section id="apache">
         <h2>2. Apache-2.0 / MIT components</h2>
         <p>Kotlin + Coroutines, Jetpack Compose + Material3 (BOM 2024.06.00), Navigation, Room 2.8.4, DataStore, Paging, Lifecycle, Activity, Coil 2.7 + coil-video, Play Billing 9.1, ProfileInstaller, Benchmark, Espresso, JUnit — under <strong>Apache License 2.0</strong> (see respective project sites at <a href="https://developer.android.com/jetpack">developer.android.com/jetpack</a>, <a href="https://kotlinlang.org">kotlinlang.org</a>, <a href="https://coil-kt.github.io/coil">coil-kt.github.io/coil</a>). Material Symbols icons in <code>ui/icons/Symbols.kt</code> likewise Apache-2.0 (<a href="https://fonts.google.com/icons">fonts.google.com/icons</a>).</p>
-        <p>Play Services Ads (GMA 23.6.0) and UMP 3.2.0 are under Google SDK licenses: <a href="https://developers.google.com/admob">AdMob</a>, governed also by <a href="https://policies.google.com/privacy">Google Privacy</a> and <a href="https://policies.google.com/technologies/ads">advertising disclosures</a>.</p>
+        <p>Play Services Ads (GMA 23.6.0), UMP 3.2.0, and the Play Integrity API (1.6.0) are under Google SDK licenses: <a href="https://developers.google.com/admob">AdMob</a>, governed also by <a href="https://policies.google.com/privacy">Google Privacy</a> and <a href="https://policies.google.com/technologies/ads">advertising disclosures</a>.</p>
       </section>
 
       <section id="proprietary">
@@ -57,14 +55,14 @@
       <section id="contact">
         <h2>4. Contact</h2>
         <p>SolusVoid — <a href="mailto:solusvoidofficial@gmail.com">solusvoidofficial@gmail.com</a> — package <code>com.solusvoid.myvrplayer</code>.</p>
-        <p>Related: <a href="../privacy/">Privacy Policy</a> · <a href="../terms/">Terms of Use</a> · <a href="../app-ads.txt">app-ads.txt</a></p>
+        <p>Related: <a href="../privacy/">Privacy Policy</a> · <a href="../terms/">Terms of Use</a></p>
       </section>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <span>&copy; 2026 SolusVoid — My VR Media Player &middot; Effective October 14, 2026</span>
+      <span>&copy; 2026 SolusVoid — My VR Media Player &middot; Effective October 18, 2026</span>
       <nav aria-label="Footer">
         <a href="../">Home</a>
         <a href="../privacy/">Privacy Policy</a>

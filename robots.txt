@@ -1,5 +1,4 @@
 User-agent: *
-Allow: /app-ads.txt
 Allow: /privacy
 Allow: /terms
 Allow: /licenses

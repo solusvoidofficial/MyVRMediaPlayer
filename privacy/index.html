@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy — My VR Media Player</title>
-  <meta name="description" content="Privacy Policy for My VR Media Player by SolusVoid: what data is collected (AdMob ads only), purposes, consent, choices, retention, deletion, and contact.">
+  <meta name="description" content="Privacy Policy for My VR Media Player by SolusVoid: what data is collected (ads, purchase verification, diagnostics), purposes, consent, choices, retention, deletion, and contact.">
   <link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -30,7 +30,7 @@
       <section class="hero">
         <h1>Privacy Policy</h1>
         <p class="lead">My VR Media Player — package <code>com.solusvoid.myvrplayer</code>, by <strong>SolusVoid</strong>.</p>
-        <p><strong>Effective date: October 14, 2026.</strong> Contact: <a href="mailto:solusvoidofficial@gmail.com">solusvoidofficial@gmail.com</a>.</p>
+        <p><strong>Effective date: October 18, 2026.</strong> Contact: <a href="mailto:solusvoidofficial@gmail.com">solusvoidofficial@gmail.com</a>.</p>
         <p>This page is the official privacy policy URL submitted to Google Play for this app.</p>
       </section>
 
@@ -54,17 +54,18 @@
 
       <section id="overview">
         <h2>1. Overview — your videos stay on your device</h2>
-        <p>My VR Media Player is an <strong>offline-first local video player</strong>. It plays video files stored on your device (via the Android media library). <strong>Your videos are never uploaded, streamed, or sent to our servers — there are no servers, no accounts, and no cloud sync.</strong></p>
-        <p>Internet access in the app is used <strong>only for advertising</strong> (Google AdMob) and the one-time Remove Ads purchase (Google Play Billing). If ads fail to load — for example in airplane mode — <strong>video playback continues normally</strong>.</p>
+        <p>My VR Media Player is an <strong>offline-first local video player</strong>. It plays video files stored on your device (via the Android media library). <strong>Your videos are never uploaded, streamed, or sent to our servers — there are no accounts and no cloud sync.</strong></p>
+        <p>Internet access in the app is used <strong>only for advertising</strong> (Google AdMob), the one-time Remove Ads purchase (Google Play Billing), and <strong>purchase verification</strong> via a stateless SolusVoid service that stores nothing (see §8). No analytics, no accounts, no cloud sync. If ads fail to load — for example in airplane mode — <strong>video playback continues normally</strong>, and a previously purchased upgrade stays honored on your device.</p>
       </section>
 
       <section id="data">
         <h2>2. Data we collect</h2>
-        <p>We do not operate our own analytics or tracking. The following data is collected <strong>by Google's advertising and store SDKs embedded in the app</strong> (Google Mobile Ads / AdMob, User Messaging Platform for consent, Google Play Billing, and crash reporting), not by a SolusVoid server:</p>
+        <p>We do not operate our own analytics or tracking. The following data is collected <strong>by Google's advertising and store SDKs embedded in the app</strong> (Google Mobile Ads / AdMob, User Messaging Platform for consent, Google Play Billing, Google Play Integrity, and crash reporting) plus the stateless purchase-verification flow described in §8:</p>
         <table class="meta">
           <tr><th scope="row">IP address</th><td>Collected by the ads SDK to deliver ads, estimate coarse location for ad targeting/fraud prevention, and diagnose failures. This matches the Play Data Safety disclosure "IP address — collected".</td></tr>
           <tr><th scope="row">Advertising ID</th><td>The Android advertising ID (resettable by you) used for ad personalization, frequency capping, and measurement. Matches "Device / advertising ID — collected". You can reset or delete it in Android Settings (see §4).</td></tr>
           <tr><th scope="row">Product interactions</th><td>Ad views, ad clicks/taps, and purchase confirmation for Remove Ads. Used for ad delivery, billing entitlement, and the Play Data Safety disclosure "App interactions — collected".</td></tr>
+          <tr><th scope="row">Purchase verification</th><td>When you buy or restore Remove Ads, the app sends the Google Play purchase token (and, on release builds, a Google Play Integrity token about the app/device verdict) to a <strong>stateless SolusVoid verification service</strong>, which checks it with Google's Play Developer API and Play Integrity API and returns a signed result. These tokens are processed transiently to confirm the purchase and detect fake billing or tampered app copies — <strong>nothing is stored</strong> server-side.</td></tr>
           <tr><th scope="row">Diagnostics</th><td>Crash logs and performance data used to fix bugs. Matches "Crash logs / diagnostics — collected". Crash logs never include your video file contents.</td></tr>
         </table>
         <h3>Data we do NOT collect</h3>
@@ -76,7 +77,7 @@
         <ul>
           <li><strong>Advertising:</strong> display banner, native, interstitial, and rewarded ads; cap frequency; detect invalid traffic/fraud.</li>
           <li><strong>Measurement:</strong> understand aggregate ad performance (impressions, clicks).</li>
-          <li><strong>Purchases:</strong> verify and remember the one-time Remove Ads purchase on your Google account.</li>
+          <li><strong>Purchases:</strong> verify (server-side, to prevent fake-billing apps) and remember the one-time Remove Ads purchase on your Google account.</li>
           <li><strong>Stability:</strong> diagnose crashes and keep playback reliable.</li>
         </ul>
         <p>We <strong>do not sell</strong> personal data. We do not use your videos or local history for advertising.</p>
@@ -97,12 +98,12 @@
 
       <section id="sharing">
         <h2>5. Sharing &amp; third parties</h2>
-        <p>Data described in §2 is processed by Google (AdMob / Google Mobile Ads SDK, UMP consent SDK, Google Play Billing, crash reporting) to provide ads, purchases, and stability. Our authorized-ads file is published at <a href="../app-ads.txt">app-ads.txt</a>. We embed <strong>no other</strong> third-party analytics, social, or advertising SDKs. Open-source attribution: <a href="../licenses/">Licenses</a>. App terms: <a href="../terms/">Terms of Use</a>.</p>
+        <p>Data described in §2 is processed by Google (AdMob / Google Mobile Ads SDK, UMP consent SDK, Google Play Billing, Google Play Integrity, crash reporting) to provide ads, purchases, verification, and stability — and by the <strong>stateless SolusVoid verification service</strong> (§8), which stores nothing. We embed <strong>no other</strong> third-party analytics, social, or advertising SDKs. Open-source attribution: <a href="../licenses/">Licenses</a>. App terms: <a href="../terms/">Terms of Use</a>.</p>
       </section>
 
       <section id="security">
         <h2>6. Security &amp; storage</h2>
-        <p>Ad and diagnostic data in transit is protected with TLS encryption. Your video files, playback history, and preferences remain on your device; the local history database is explicitly excluded from Android Auto Backup so it is not copied to the cloud.</p>
+        <p>Ad, diagnostic, and purchase-verification data in transit is protected with TLS encryption, and the verification service keeps no copy of it. Your video files, playback history, and preferences remain on your device; the local history database and the encrypted entitlement file are explicitly excluded from Android Auto Backup so they are not copied to the cloud.</p>
       </section>
 
       <section id="retention">
@@ -116,16 +117,16 @@
 
       <section id="premium">
         <h2>8. Remove Ads (one-time purchase)</h2>
-        <p>The app offers a single one-time purchase, <code>remove_ads_premium</code>, via Google Play Billing. It permanently disables all ads and unlocks full resolution for high-resolution videos on the purchasing Google account. Entitlement is cached on-device for offline use and re-verified with Google Play when online. Refunds/revocations handled by Google Play remove the entitlement. Payment processing is handled entirely by Google Play under the <a href="https://play.google.com/about/play-terms/">Google Play Terms</a>.</p>
+        <p>The app offers a single one-time purchase, <code>remove_ads_premium</code>, via Google Play Billing. It permanently disables all ads and unlocks full resolution for high-resolution videos on the purchasing Google account. The entitlement is stored <strong>encrypted on your device</strong> (usable offline) and <strong>re-verified online</strong> through a stateless SolusVoid verification service, which validates the purchase with Google Play's Developer API and — on release builds — Google Play Integrity, in order to detect fake billing and tampered app copies. Refunds/revocations handled by Google Play remove the entitlement. Payment processing is handled entirely by Google Play under the <a href="https://play.google.com/about/play-terms/">Google Play Terms</a>.</p>
       </section>
 
       <section id="permissions">
         <h2>9. App permissions</h2>
         <table class="meta">
           <tr><th scope="row">Read media (video)</th><td>To list and play your local video files. Required for the core feature.</td></tr>
-          <tr><th scope="row">Internet + network state</th><td><strong>Ads only.</strong> Loading and displaying AdMob ads and consent messaging. Playback works without connectivity.</td></tr>
+          <tr><th scope="row">Internet + network state</th><td><strong>Ads and purchase verification.</strong> Loading and displaying AdMob ads and consent messaging, plus the one-time Remove Ads verification (§8). Playback works without connectivity.</td></tr>
           <tr><th scope="row">Advertising ID permission</th><td>To read the resettable advertising ID for ads (see §4).</td></tr>
-          <tr><th scope="row">Billing</th><td>To offer and verify the one-time Remove Ads purchase (provided automatically by the Play Billing library).</td></tr>
+          <tr><th scope="row">Billing</th><td>To offer and verify the one-time Remove Ads purchase. The verification step sends the purchase token (and a Play Integrity token on release builds) to the stateless SolusVoid service described in §8.</td></tr>
           <tr><th scope="row">Keep screen on / wake</th><td>To prevent the screen sleeping during playback.</td></tr>
         </table>
       </section>
@@ -151,7 +152,7 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <span>&copy; 2026 SolusVoid — My VR Media Player &middot; Effective October 14, 2026</span>
+      <span>&copy; 2026 SolusVoid — My VR Media Player &middot; Effective October 18, 2026</span>
       <nav aria-label="Footer">
         <a href="../">Home</a>
         <a href="./">Privacy Policy</a>
