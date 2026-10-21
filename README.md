@@ -33,12 +33,40 @@ Auto-deploy to GitHub Pages on every push to `main` via `.github/workflows/pages
 
 One-time repo setting: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
+## `app-ads.txt` — dilayani dari repo LAIN (user-site)
+
+`app-ads.txt` **tidak** dilayani dari repo ini. AdMob mencari file itu di **root hostname**
+dari URL *developer website* yang terdaftar di listing Google Play, dan project-page **tidak
+bisa** menyajikan file di root.
+
+Karena itu file-nya dilayani dari repo user-site
+[`solusvoidofficial/solusvoidofficial.github.io`](https://github.com/solusvoidofficial/solusvoidofficial.github.io):
+
+```
+https://solusvoidofficial.github.io/app-ads.txt
+→ google.com, pub-5600327675311414, DIRECT, f08c47fec0942fa0
+```
+
+Verifikasi:
+
+```powershell
+curl -I https://solusvoidofficial.github.io/app-ads.txt   # -> 200, text/plain
+```
+
+Status: **published & live** (2026-10-21). Verifikasi app di AdMob dilakukan setelah listing
+Play publik + developer website terisi (±24 jam crawl).
+
+## CTA "Google Play"
+
+Tombol utama di home **belum** link ke listing Play karena app masih dalam closed testing
+(link ke listing yang belum ada = dead link = sinyal kualitas rendah saat review AdMob).
+Saat listing sudah live, ganti `<span class="btn primary is-disabled">` di `index.html`
+menjadi link ke `https://play.google.com/store/apps/details?id=com.solusvoid.myvrplayer`.
+
 ## Notes
 
 - `.nojekyll` must stay (empty) so Pages serves files as-is.
 - All inter-page links are **relative** (`./`, `../`), so moving to a custom domain later needs 0 HTML edits.
-- `app-ads.txt` is intentionally **not** hosted in this repo: AdMob crawls it at the **root of the developer-website domain** (e.g. `https://solusvoidofficial.github.io/app-ads.txt`), which a project-page repo cannot serve. To publish it, create the `solusvoidofficial.github.io` user-site repo (or use a custom domain) containing:
-  `google.com, pub-5600327675311414, DIRECT, f08c47fec0942fa0` (real AdMob publisher ID), then verify: `curl -I <domain-root>/app-ads.txt` → `200` + `content-type: text/plain`.
 - Canonical URLs for store listings:
   - Privacy Policy (Play Console): `/privacy/`
   - Terms (in-app Legal): `/terms/`

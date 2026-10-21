@@ -42,6 +42,9 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .btn.primary { background: var(--btn); border-color: var(--btn); color: var(--btn-ink); }
 .btn.ghost { color: var(--text); background: transparent; }
+/* Tombol non-interaktif (mis. "Coming soon") — tetap terbaca, tapi bukan link mati. */
+.btn.is-disabled { opacity: .72; cursor: default; }
+.btn.is-disabled:hover { filter: none; transform: none; }
 .btn:hover { filter: brightness(1.08); text-decoration: none; }
 .grid { display: grid; grid-template-columns: 1fr; gap: 14px; padding: 12px 0 8px; }
 @media (min-width: 720px) { .grid.two { grid-template-columns: 1fr 1fr; } .grid.three { grid-template-columns: 1fr 1fr 1fr; } }
