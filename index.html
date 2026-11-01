@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My VR Media Player — Offline VR Video Player for Android</title>
-  <meta name="description" content="My VR Media Player (VrPlayerGw) by SolusVoid: offline-first local VR video player for Android. Broad format support, every projection, one lightweight player.">
+  <meta name="description" content="My VR Media Player (VrPlayerGw) by SolusVoid: offline-first local VR video player for Android with MediaPlayer and Media3 ExoPlayer engines.">
   <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f5f5f5" media="(prefers-color-scheme: light)">
   <meta property="og:title" content="My VR Media Player — Offline VR Video Player">
-  <meta property="og:description" content="Broad format support, every projection, one lightweight offline player. Your videos never leave your device.">
+  <meta property="og:description" content="Offline VR playback with MediaPlayer and Media3 ExoPlayer. Your videos never leave your device.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="./assets/icon.svg">
   <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
@@ -38,12 +38,12 @@
     <div class="wrap">
       <section class="hero">
         <h1>My VR Media Player</h1>
-        <p class="lead">Broad format support, every projection, one lightweight player. An offline-first local VR video player for Android — your videos never leave your device.</p>
+        <p class="lead">Your local videos in VR, in one lightweight player. An offline-first video player for Android — your videos never leave your device.</p>
         <div class="badge-row" aria-label="Highlights">
           <span class="badge ok">Offline-first playback</span>
           <span class="badge">360&deg; / 180&deg; / Fisheye / Flat</span>
           <span class="badge">SBS / Top-Bottom stereo</span>
-          <span class="badge">libVLC + MediaPlayer engines</span>
+          <span class="badge">MediaPlayer + ExoPlayer engines</span>
           <span class="badge">Cardboard headsets</span>
         </div>
         <div class="cta-row">
@@ -62,7 +62,7 @@
         <div class="grid three">
           <div class="card">
             <h3>Plays your local videos, offline</h3>
-            <p>Browse videos from your device with fast thumbnails, folders, search and sort. <strong>Airplane mode = playback still works.</strong> No account, no cloud, no streaming. Codec support depends on the selected engine and your device.</p>
+            <p>Browse videos from your device with fast thumbnails, folders, search and sort. <strong>Airplane mode = playback still works.</strong> No account, no cloud, no streaming. MP4, MOV and 3GP with H.264 are the supported playback targets; other formats depend on your device's codecs and the selected engine. Subtitles are not supported.</p>
           </div>
           <div class="card">
             <h3>True VR projections</h3>
@@ -76,7 +76,7 @@
         <div class="grid two">
           <div class="card">
             <h3>Two decoder engines</h3>
-            <p><strong>libVLC</strong> (recommended, broad format support with hardware decoding when available) or the lightweight built-in <strong>MediaPlayer</strong>. Switch anytime in Settings.</p>
+            <p>Choose between the built-in Android <strong>MediaPlayer</strong> and <strong>Media3 ExoPlayer</strong> in <strong>Settings &gt; Player engine</strong>. MediaPlayer is the default. Both rely on device codecs; switching engines does not guarantee support for every format.</p>
           </div>
           <div class="card">
             <h3>Your history stays yours</h3>

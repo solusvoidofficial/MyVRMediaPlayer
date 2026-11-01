@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Open-Source Licenses — My VR Media Player</title>
-  <meta name="description" content="Open-source attribution for My VR Media Player: libVLC LGPL-2.1, Apache-2.0 components, Google SDKs, and proprietary notice.">
+  <meta name="description" content="Open-source attribution for My VR Media Player: Media3 ExoPlayer and Apache-2.0 components, Google SDKs, and proprietary notice.">
   <link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -33,12 +33,13 @@
         <p>A short version is also shown offline in-app: <strong>Settings &gt; About &gt; Legal</strong>. Full repo file: <code>THIRD_PARTY_NOTICES.md</code>.</p>
       </section>
 
-      <section id="lgpl">
-        <h2>1. LGPL-2.1 components</h2>
-        <h3>libVLC — org.videolan.android:libvlc-all:3.7.1</h3>
-        <p>Copyright VideoLAN and contributors. License: <strong>GNU Lesser General Public License v2.1</strong>. Source: <a href="https://code.videolan.org/videolan/libvlcjni">code.videolan.org/videolan/libvlcjni</a>, Java/JNI revision <a href="https://code.videolan.org/videolan/libvlcjni/-/commit/2fca0d2b5eb1d94e2c41e23408e8087358cb983a"><code>2fca0d2</code></a> (libvlcjni 3.7.1). License text: <a href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html">gnu.org/licenses/old-licenses/lgpl-2.1.en.html</a>. Linked as a prebuilt AAR; app code is a separate work via the public Java API. Build scripts and patches are in the same upstream repository under <a href="https://code.videolan.org/videolan/libvlcjni/-/tree/2fca0d2/buildsystem"><code>buildsystem</code></a>; VLC source references are at <a href="https://code.videolan.org/videolan/vlc">code.videolan.org/videolan/vlc</a>.</p>
-        <h3>FFmpeg and codec components inside libVLC</h3>
-        <p>The shipped libVLC reports VLC <strong>3.0.24-beta1</strong> and includes <strong>FFmpeg 8.1</strong> (<code>libavcodec</code> 62.28.100) as part of its own distribution. VLC source is based on upstream <a href="https://code.videolan.org/videolan/vlc/-/commit/4c608da16c33560821be7e5c1ad4e34bf5a65398"><code>4c608da</code></a> plus the 20 Android patches published in the libvlcjni repository; all 20 patches were verified to apply cleanly on 2026-10-30. FFmpeg source reference: <a href="https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n8.1.tar.gz">FFmpeg n8.1</a>. Exact FFmpeg configure flags/static contribs are still being verified against the binary; do not assume the whole binary is GPL or LGPL from the AAR alone. Earlier builds also bundled <code>FFmpegMediaMetadataRetriever 1.0.14</code> for thumbnail fallback; that <strong>separate</strong> library was removed for 16KB page-size Play compliance. Thumbnails now use the Android platform (<code>ThumbnailUtils</code> / <code>MediaMetadataRetriever</code> → Coil). A provenance/notice record is maintained in the app repository (<code>docs/LICENSE_SOURCE_MANIFEST.md</code>).</p>
+      <section id="engines">
+        <h2>1. Playback engines in the current app</h2>
+        <h3>Android MediaPlayer / MediaCodec</h3>
+        <p>The default engine uses the Android platform's <code>MediaPlayer</code> and device codecs. These are provided by the operating system, not bundled third-party decoders.</p>
+        <h3>AndroidX Media3 ExoPlayer — androidx.media3:media3-exoplayer:1.11.1</h3>
+        <p>Copyright The Android Open Source Project and contributors. Media3 ExoPlayer is available as a playback engine in Settings, licensed under the <strong>Apache License 2.0</strong>. Source and notices: <a href="https://github.com/androidx/media">github.com/androidx/media</a>. License text: <a href="https://www.apache.org/licenses/LICENSE-2.0">apache.org/licenses/LICENSE-2.0</a>. The app uses device codecs and does not bundle FFmpeg decoder extensions.</p>
+        <p>Thumbnail loading uses Android platform APIs and Coil.</p>
       </section>
 
       <section id="apache">
@@ -62,7 +63,7 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <span>&copy; 2026 SolusVoid — My VR Media Player &middot; Effective October 30, 2026</span>
+      <span>&copy; 2026 SolusVoid — My VR Media Player &middot; Updated November 1, 2026</span>
       <nav aria-label="Footer">
         <a href="../">Home</a>
         <a href="../privacy/">Privacy Policy</a>
