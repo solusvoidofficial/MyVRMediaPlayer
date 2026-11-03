@@ -1,5 +1,4 @@
 User-agent: *
-Allow: /privacy
-Allow: /terms
-Allow: /licenses
 Allow: /
+
+Sitemap: https://solusvoidofficial.github.io/MyVRMediaPlayer/sitemap.xml

@@ -4,15 +4,48 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My VR Media Player — Offline VR Video Player for Android</title>
-  <meta name="description" content="My VR Media Player (VrPlayerGw) by SolusVoid: offline-first local VR video player for Android with MediaPlayer and Media3 ExoPlayer engines.">
+  <meta name="description" content="My VR Media Player by SolusVoid: an offline-first local VR video player for Android with MediaPlayer and Media3 ExoPlayer, 360/180/fisheye and SBS stereo.">
+  <link rel="canonical" href="https://solusvoidofficial.github.io/MyVRMediaPlayer/">
+  <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f5f5f5" media="(prefers-color-scheme: light)">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="My VR Media Player">
+  <meta property="og:url" content="https://solusvoidofficial.github.io/MyVRMediaPlayer/">
   <meta property="og:title" content="My VR Media Player — Offline VR Video Player">
   <meta property="og:description" content="Offline VR playback with MediaPlayer and Media3 ExoPlayer. Your videos never leave your device.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/icon.svg">
+  <meta property="og:image" content="https://solusvoidofficial.github.io/MyVRMediaPlayer/assets/img/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="My VR Media Player — local videos, immersive VR with 360, 180, fisheye and SBS stereo.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My VR Media Player — Offline VR Video Player">
+  <meta name="twitter:description" content="Offline VR playback with MediaPlayer and Media3 ExoPlayer. Your videos never leave your device.">
+  <meta name="twitter:image" content="https://solusvoidofficial.github.io/MyVRMediaPlayer/assets/img/og-cover.jpg">
+
   <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32.png">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="./assets/site.webmanifest">
+  <link rel="stylesheet" href="./assets/tokens.css">
   <link rel="stylesheet" href="./assets/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "My VR Media Player",
+    "url": "https://solusvoidofficial.github.io/MyVRMediaPlayer/",
+    "image": "https://solusvoidofficial.github.io/MyVRMediaPlayer/assets/img/og-cover.jpg",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Android 7.0+",
+    "inLanguage": "en",
+    "publisher": { "@type": "Organization", "name": "SolusVoid" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
   <!-- app-ads.txt (AdMob Authorized Sellers for Apps) dilayani di ROOT domain:
        https://solusvoidofficial.github.io/app-ads.txt  (repo user-site solusvoidofficial.github.io).
        AdMob mencari file itu di root hostname developer website yang terdaftar di listing Play. -->
@@ -22,7 +55,7 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="./" aria-label="My VR Media Player home">
-        <img src="./assets/icon.svg" alt="" width="32" height="32">
+        <span class="brand-mark"><img src="./assets/icon.svg" alt="" width="27" height="27"></span>
         <span>My VR Media Player</span>
       </a>
       <nav class="nav" aria-label="Site">
@@ -37,24 +70,65 @@
   <main id="main">
     <div class="wrap">
       <section class="hero">
-        <h1>My VR Media Player</h1>
-        <p class="lead">Your local videos in VR, in one lightweight player. An offline-first video player for Android — your videos never leave your device.</p>
-        <div class="badge-row" aria-label="Highlights">
-          <span class="badge ok">Offline-first playback</span>
-          <span class="badge">360&deg; / 180&deg; / Fisheye / Flat</span>
-          <span class="badge">SBS / Top-Bottom stereo</span>
-          <span class="badge">MediaPlayer + ExoPlayer engines</span>
-          <span class="badge">Cardboard headsets</span>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>My VR Media Player</h1>
+            <p class="lead">Your local videos in VR, in one lightweight player. An offline-first video player for Android — your videos never leave your device.</p>
+            <ul class="badge-row" aria-label="Highlights">
+              <li class="badge ok">Offline-first playback</li>
+              <li class="badge">360&deg; / 180&deg; / Fisheye / Flat</li>
+              <li class="badge">SBS / Top-Bottom stereo</li>
+              <li class="badge">MediaPlayer + ExoPlayer engines</li>
+              <li class="badge">Cardboard headsets</li>
+            </ul>
+            <div class="cta-row">
+              <!-- Coming soon: app belum published di Google Play (closed testing).
+                   Saat listing sudah live, GANTI <span> ini jadi link:
+                   <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.solusvoid.myvrplayer">Get it on Google Play</a>
+                   (dead link ke listing yang belum ada = sinyal kualitas rendah saat review AdMob.) -->
+              <span class="btn primary is-disabled" aria-disabled="true">Coming soon to Google Play</span>
+              <a class="btn ghost" href="./privacy/">Privacy Policy</a>
+            </div>
+            <p class="fine">Package: <code>com.solusvoid.myvrplayer</code> &middot; Requires Android 7.0+ &middot; Free with ads, optional one-time Remove Ads.</p>
+          </div>
+          <figure class="hero-art">
+            <img src="./assets/img/browser.webp" width="760" height="1593" fetchpriority="high" decoding="async"
+                 alt="My VR Media Player library on Android showing local VR videos with 2K and 1080p badges, folders, search and sort.">
+          </figure>
         </div>
-        <div class="cta-row">
-          <!-- Coming soon: app belum published di Google Play (closed testing).
-               Saat listing sudah live, GANTI <span> ini jadi link:
-               <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.solusvoid.myvrplayer">Get it on Google Play</a>
-               (dead link ke listing yang belum ada = sinyal kualitas rendah saat review AdMob.) -->
-          <span class="btn primary is-disabled" aria-disabled="true">Coming soon to Google Play</span>
-          <a class="btn ghost" href="./privacy/">Privacy Policy</a>
+      </section>
+
+      <section class="block" id="screenshots" aria-labelledby="screenshots-title">
+        <h2 id="screenshots-title">Screenshots</h2>
+        <p class="section-lead">Taken from the current Android build. No account, no cloud — just the videos already on your device.</p>
+        <div class="gallery">
+          <figure class="gallery-wide">
+            <img src="./assets/img/vr-mode.webp" width="1600" height="763" loading="lazy" decoding="async"
+                 alt="Side-by-side VR mode in My VR Media Player, showing the same fisheye video rendered for each eye.">
+          </figure>
+          <div class="shots">
+            <figure class="shot">
+              <img src="./assets/img/browser.webp" width="760" height="1593" loading="lazy" decoding="async"
+                   alt="Library grid with folder chips, resolution badges, search, sort and grid controls.">
+              <figcaption>Browse local videos with fast thumbnails, folders, search and sort.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="./assets/img/player.webp" width="600" height="1258" loading="lazy" decoding="async"
+                   alt="Player screen with projection, eye and VR controls over a fisheye video.">
+              <figcaption>Projection, stereo and VR controls stay out of the way during playback.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="./assets/img/view-sheet.webp" width="600" height="1258" loading="lazy" decoding="async"
+                   alt="View and 3D mode sheet with flat, fisheye, 360, cube and 180 projections.">
+              <figcaption>Pick a view — Flat, Fisheye, 360, 360 cube or 180 — and a 3D mode.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="./assets/img/settings.webp" width="600" height="1258" loading="lazy" decoding="async"
+                   alt="Settings screen with Remove Ads, player engine, hardware decoding, video quality and display cards.">
+              <figcaption>Choose the player engine, decoding mode and render quality in Settings.</figcaption>
+            </figure>
+          </div>
         </div>
-        <p class="fine">Package: <code>com.solusvoid.myvrplayer</code> &middot; Requires Android 7.0+ &middot; Free with ads, optional one-time Remove Ads.</p>
       </section>
 
       <section class="block" aria-labelledby="features">
@@ -87,10 +161,16 @@
 
       <section class="block" aria-labelledby="ads">
         <h2 id="ads">Ads &amp; Premium</h2>
-        <div class="card">
-          <p><strong>This app contains ads</strong> (Google AdMob). No banner, native, or rewarded ad is displayed during video playback or inside the VR playback view; an interstitial may appear at the transition after you leave the player.</p>
-          <p>An optional one-time <strong>Remove Ads</strong> purchase (<code>remove_ads_premium</code>) disables all ads and removes the app's resolution limit for high-resolution videos. Actual playback still depends on device codec/GPU support and your settings. Network access is used <strong>only for ads and the one-time purchase verification</strong>; if ads fail to load, playback continues normally.</p>
-          <p>Details: <a href="./privacy/">Privacy Policy</a></p>
+        <div class="grid two">
+          <div class="card">
+            <h3>During playback</h3>
+            <p><strong>This app contains ads</strong> (Google AdMob). No banner, native, or rewarded ad is displayed during video playback or inside the VR playback view; an interstitial may appear at the transition after you leave the player.</p>
+          </div>
+          <div class="card">
+            <h3>Remove Ads</h3>
+            <p>An optional one-time <strong>Remove Ads</strong> purchase (<code>remove_ads_premium</code>) disables all ads and removes the app's resolution limit for high-resolution videos. Actual playback still depends on device codec/GPU support and your settings.</p>
+            <p>Network access is used <strong>only for ads and the one-time purchase verification</strong>; if ads fail to load, playback continues normally. Details: <a href="./privacy/">Privacy Policy</a></p>
+          </div>
         </div>
       </section>
 
@@ -108,6 +188,13 @@
             <p>Android 7.0 (API 24)+. Permissions: media access for your videos; internet for ads and the one-time purchase verification; advertising ID for ads. Full list in the <a href="./privacy/">Privacy Policy</a>.</p>
           </div>
         </div>
+      </section>
+
+      <section class="block" aria-label="My VR Media Player highlights">
+        <figure class="banner">
+          <img src="./assets/img/feature-graphic.webp" width="1500" height="733" loading="lazy" decoding="async"
+               alt="My VR Media Player — Local Videos. Immersive VR. 360°, 180°, Fisheye and SBS Stereo.">
+        </figure>
       </section>
     </div>
   </main>

@@ -1,0 +1,27 @@
+{
+  "name": "My VR Media Player",
+  "short_name": "VR Player",
+  "description": "Offline-first local VR video player for Android by SolusVoid.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "../",
+  "scope": "../",
+  "display": "browser",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "categories": ["entertainment", "video"],
+  "icons": [
+    {
+      "src": "img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-/* VrPlayerGw design tokens — mirror Android Mono palette (Color.kt). Single source for web. */
+/* My VR Media Player design tokens — mirror the Android Mono palette (Color.kt). Single source for web. */
 :root {
   --mono-black: #000000;
   --mono-900: #0a0a0a;
@@ -16,16 +16,23 @@
   --bg: var(--mono-900);
   --panel: var(--mono-800);
   --line: #2a2a2e;
+  --line-strong: #3a3a3f;
   --text: #f2f2f2;
   --muted: #b6b6bd;
   --btn: var(--text);
   --btn-ink: var(--bg);
+
+  /* Device screenshots are always shown on a dark surface so the
+     transparent phone mockups keep their contrast in both themes. */
+  --shot-bg: #0b0b0b;
+  --shot-line: #26262a;
+  --shot-muted: #b6b6bd;
+
   --radius: 14px;
   --radius-lg: 20px;
-  --max: 960px;
+  --max: 1040px;
 
   --motion-fast: 150ms;
-  --motion-normal: 200ms;
   --motion-slow: 500ms;
 }
 
@@ -34,6 +41,7 @@
     --bg: var(--mono-50);
     --panel: #ffffff;
     --line: var(--mono-200);
+    --line-strong: #c4c4c8;
     --text: #111111;
     --muted: #5a5a5a;
   }

@@ -1,80 +1,103 @@
 # My VR Media Player — Website
 
 [![Deploy to GitHub Pages](https://github.com/solusvoidofficial/MyVRMediaPlayer/actions/workflows/pages.yml/badge.svg)](https://github.com/solusvoidofficial/MyVRMediaPlayer/actions/workflows/pages.yml)
+[![Live site](https://img.shields.io/badge/live-solusvoidofficial.github.io-2ea44f)](https://solusvoidofficial.github.io/MyVRMediaPlayer/)
 
-Public website for **My VR Media Player** (`com.solusvoid.myvrplayer`) by **SolusVoid** — an offline-first local VR video player for Android.
+Public marketing site for **My VR Media Player** (`com.solusvoid.myvrplayer`) by
+**SolusVoid** — an offline-first local VR video player for Android.
 
 **Live site:** https://solusvoidofficial.github.io/MyVRMediaPlayer/
 
-## Contents
+> The app is still in closed testing, so the Google Play button is intentionally a
+> non-link **“Coming soon to Google Play”** until the store listing is public.
+
+![My VR Media Player — Local Videos. Immersive VR.](assets/img/og-cover.jpg)
+
+## What's inside
+
+- Product home page with feature highlights, ad/premium disclosure and a screenshot gallery
+- Privacy Policy — the canonical URL submitted to Google Play
+- Terms of Use — linked from the app's Legal section
+- Open-source licenses and attribution
+- Custom 404, `robots.txt`, `sitemap.xml`, social preview image and favicons
+
+The site is **static HTML + CSS** with no build step, no framework, no cookies and no
+analytics. It adapts to light/dark system themes, works down to 320 px, ships a
+`site.webmanifest`, and honors `prefers-reduced-motion`.
+
+## Structure
 
 | Public URL | File |
 |---|---|
-| `/` | `index.html` (home) |
-| `/privacy/` (canonical, for Play Console) | `privacy/index.html` |
-| `/privacy.html` (alias redirect) | `privacy.html` |
-| `/terms/` (Terms of Use, for in-app Legal) | `terms/index.html` |
-| `/licenses/` (open-source attribution) | `licenses/index.html` |
-| `/robots.txt` | `robots.txt` |
-| `/404.html` | `404.html` |
+| `/` | `index.html` — home + screenshots |
+| `/privacy/` | `privacy/index.html` — canonical privacy policy |
+| `/privacy.html` | `privacy.html` — redirect alias |
+| `/terms/` | `terms/index.html` — Terms of Use |
+| `/licenses/` | `licenses/index.html` — open-source attribution |
+| `/404.html` | `404.html` — self-contained error page |
+| `/sitemap.xml`, `/robots.txt` | search engine metadata |
+| `/assets/img/` | optimized WebP/JPEG screenshots, OG cover, icons |
 
 ## Local preview
-
-No build step — pure static HTML/CSS/SVG.
 
 ```powershell
 python -m http.server 8080
 # open http://localhost:8080/
 ```
 
+Or run it over HTTP as shown above; opening `index.html` via `file://` will not resolve
+directory URLs such as `privacy/`. All local links are relative, so the site also works
+from a subdirectory.
+
 ## Deployment
 
-Auto-deploy to GitHub Pages on every push to `main` via `.github/workflows/pages.yml` (official `deploy-pages` action, artifact path `.`).
+Every push to `main` deploys through
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml) using the official
+`deploy-pages` action (artifact path `.`).
 
 One-time repo setting: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
-## `app-ads.txt` — dilayani dari repo LAIN (user-site)
+- `.nojekyll` must stay so GitHub Pages serves the files as-is.
+- `404.html` is self-contained (inline CSS, absolute URLs) because Pages serves it for
+  paths at any depth. Update its URLs if the site ever moves to a custom domain.
+- All other pages use relative URLs; moving to a custom domain needs no HTML edits.
 
-`app-ads.txt` **tidak** dilayani dari repo ini. AdMob mencari file itu di **root hostname**
-dari URL *developer website* yang terdaftar di listing Google Play, dan project-page **tidak
-bisa** menyajikan file di root.
+## Content rules
 
-Karena itu file-nya dilayani dari repo user-site
-[`solusvoidofficial/solusvoidofficial.github.io`](https://github.com/solusvoidofficial/solusvoidofficial.github.io):
+Keep public claims aligned with the app's PRD and Play listing:
 
-```
-https://solusvoidofficial.github.io/app-ads.txt
-→ google.com, pub-5600327675311414, DIRECT, f08c47fec0942fa0
-```
+- **MediaPlayer** is the default engine; **Media3 ExoPlayer** is opt-in in Settings.
+  Both rely on device codecs. MP4/MOV/3GP with H.264 are the supported playback targets;
+  subtitles are not supported.
+- No banner, native or rewarded ad appears during playback or in the VR view. Ads are
+  limited to Browser/Settings, with consent handled by Google UMP.
+- Remove Ads is a one-time purchase; it disables ads and the app's resolution limit but
+  cannot guarantee decoding of every format or resolution.
+- The Play CTA stays a disabled `<span>` until the listing is public. A dead Play link
+  reads as a quality problem during AdMob review.
+- The Privacy Policy must stay in sync with the Play Console **Data safety** form.
+  `privacy/index.html` is the canonical URL.
 
-Verifikasi:
+## Assets
 
-```powershell
-curl -I https://solusvoidofficial.github.io/app-ads.txt   # -> 200, text/plain
-```
+Marketing screenshots are derived from the supplied app captures and optimized to
+WebP/JPEG (all site images together are under 350 KB). When replacing an image, update
+its `width`/`height` attributes in the HTML to match. The social preview is
+`assets/img/og-cover.jpg` (1200×630), referenced with absolute URLs on every page.
 
-Status: **published & live** (2026-10-21). Verifikasi app di AdMob dilakukan setelah listing
-Play publik + developer website terisi (±24 jam crawl).
+## `app-ads.txt`
 
-## CTA "Google Play"
-
-Tombol utama di home **belum** link ke listing Play karena app masih dalam closed testing
-(link ke listing yang belum ada = dead link = sinyal kualitas rendah saat review AdMob).
-Saat listing sudah live, ganti `<span class="btn primary is-disabled">` di `index.html`
-menjadi link ke `https://play.google.com/store/apps/details?id=com.solusvoid.myvrplayer`.
-
-## Notes
-
-- `.nojekyll` must stay (empty) so Pages serves files as-is.
-- All inter-page links are **relative** (`./`, `../`), so moving to a custom domain later needs 0 HTML edits.
-- Canonical URLs for store listings:
-  - Privacy Policy (Play Console): `/privacy/`
-  - Terms (in-app Legal): `/terms/`
-  - Licenses: `/licenses/`
+`app-ads.txt` is **not** served from this project page — AdMob looks for it at the host
+root. It lives in the user-site repo
+[`solusvoidofficial/solusvoidofficial.github.io`](https://github.com/solusvoidofficial/solusvoidofficial.github.io)
+and is available at https://solusvoidofficial.github.io/app-ads.txt.
 
 ## Contact
 
 Developer: **SolusVoid** — solusvoidofficial@gmail.com
-App: My VR Media Player, package `com.solusvoid.myvrplayer`, Android 7.0+.
 
-© 2026 SolusVoid. Site content and artwork all rights reserved.
+Found a broken link or outdated information? Open an issue or email us.
+
+---
+
+© 2026 SolusVoid. Site content, screenshots and artwork are all rights reserved.
