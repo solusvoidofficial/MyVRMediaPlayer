@@ -27,7 +27,7 @@ a:hover { text-decoration-thickness: 2px; }
   position: sticky; top: 0; z-index: 20;
   border-bottom: 1px solid var(--line);
   background: var(--bg);
-  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
@@ -199,6 +199,8 @@ table.meta td { color: var(--muted); overflow-wrap: anywhere; }
 }
 .site-footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; }
 .site-footer nav { display: flex; flex-wrap: wrap; gap: 16px; }
+.site-footer nav a { text-decoration: none; }
+.site-footer nav a:hover { text-decoration: underline; }
 .skip { position: fixed; left: -9999px; top: 12px; }
 .skip:focus { left: 12px; background: #fff; color: #000; padding: 8px 14px; z-index: 99; }
 
