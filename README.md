@@ -77,6 +77,9 @@ Keep public claims aligned with the app's PRD and Play listing:
   reads as a quality problem during AdMob review.
 - The Privacy Policy must stay in sync with the Play Console **Data safety** form.
   `privacy/index.html` is the canonical URL.
+- The Licenses page must stay self-contained. Do **not** reference files or source paths
+  from the private app repository (for example `THIRD_PARTY_NOTICES.md`, `LICENSE`, or
+  `ui/...`). List components and link only to public upstream license pages.
 
 ## Assets
 
