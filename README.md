@@ -8,8 +8,8 @@ Public marketing site for **My VR Media Player** (`com.solusvoid.myvrplayer`) by
 
 **Live site:** https://solusvoidofficial.github.io/MyVRMediaPlayer/
 
-> The app is still in closed testing, so the Google Play button is intentionally a
-> non-link **“Coming soon to Google Play”** until the store listing is public.
+> The Google Play button links straight to the public store listing:
+> https://play.google.com/store/apps/details?id=com.solusvoid.myvrplayer
 
 ![My VR Media Player — Local Videos. Immersive VR.](assets/img/og-cover.jpg)
 
