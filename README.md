@@ -64,6 +64,9 @@ One-time repo setting: **Settings → Pages → Build and deployment → Source:
 
 ## Content rules
 
+Run `python tools/check_site.py` after edits: it verifies local links and fragments,
+forbidden private references, and the required copy below.
+
 Keep public claims aligned with the app's PRD and Play listing:
 
 - **MediaPlayer** is the default engine; **Media3 ExoPlayer** is opt-in in Settings.
@@ -77,9 +80,16 @@ Keep public claims aligned with the app's PRD and Play listing:
   reads as a quality problem during AdMob review.
 - The Privacy Policy must stay in sync with the Play Console **Data safety** form.
   `privacy/index.html` is the canonical URL.
+- Privacy copy must stay in sync with the **limited-ads** policy and **US-state**/GDPR
+  rights behavior: declining personalization or opting out is **not** zero ads, limited
+  or non-personalized ads may still appear when UMP/TCF/GPP and Google policy allow, and
+  only Remove Ads removes ads. The EEA/UK/CH form can appear at launch and from Settings;
+  the US-state form is reached via **Settings → Legal → Privacy options**. Keep the
+  controller/contact and international-transfer sections current.
 - The Licenses page must stay self-contained. Do **not** reference files or source paths
   from the private app repository (for example `THIRD_PARTY_NOTICES.md`, `LICENSE`, or
-  `ui/...`). List components and link only to public upstream license pages.
+  `ui/...`). List components and link only to public upstream license pages. The same
+  ban applies to every public page, not just Licenses.
 
 ## Assets
 
