@@ -192,6 +192,20 @@ table.meta th, table.meta td {
 table.meta th { color: var(--text); width: 34%; }
 table.meta td { color: var(--muted); overflow-wrap: anywhere; }
 
+/* ---------- License text disclosure ---------- */
+.policy details {
+  margin: 16px 0; border: 1px solid var(--line);
+  border-radius: var(--radius); background: var(--panel);
+}
+.policy summary { cursor: pointer; padding: 12px 16px; font-weight: 700; }
+.policy details[open] summary { border-bottom: 1px solid var(--line); }
+.policy pre {
+  margin: 0; padding: 16px; overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 12.5px; line-height: 1.55; color: var(--muted);
+  white-space: pre-line;
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   border-top: 1px solid var(--line); margin-top: 40px;
@@ -258,6 +272,16 @@ table.meta td { color: var(--muted); overflow-wrap: anywhere; }
     font-size: 14px; letter-spacing: 0.01em;
   }
   table.meta td { padding: 0; border: 0; }
+  table.components thead { display: none; }
+  table.components td { padding: 2px 0; }
+  table.components td::before {
+    display: inline-block; min-width: 82px; margin-right: 6px;
+    color: var(--text); font-weight: 700;
+  }
+  table.components td:nth-child(1)::before { content: "Component: "; }
+  table.components td:nth-child(2)::before { content: "Version: "; }
+  table.components td:nth-child(3)::before { content: "License: "; }
+  table.components td:nth-child(4)::before { content: "Upstream: "; }
 }
 @media (max-width: 380px) {
   .wrap { padding: 0 16px; }
