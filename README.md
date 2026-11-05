@@ -76,8 +76,10 @@ Keep public claims aligned with the app's PRD and Play listing:
   limited to Browser/Settings, with consent handled by Google UMP.
 - Remove Ads is a one-time purchase; it disables ads and the app's resolution limit but
   cannot guarantee decoding of every format or resolution.
-- The Play CTA stays a disabled `<span>` until the listing is public. A dead Play link
-  reads as a quality problem during AdMob review.
+- The Play CTA must link to the live public store listing (currently
+  https://play.google.com/store/apps/details?id=com.solusvoid.myvrplayer). Never point it
+  at a closed test, private, or dead URL; a dead Play link reads as a quality problem
+  during AdMob review.
 - The Privacy Policy must stay in sync with the Play Console **Data safety** form.
   `privacy/index.html` is the canonical URL.
 - Privacy copy must stay in sync with the **limited-ads** policy and **US-state**/GDPR
@@ -88,8 +90,8 @@ Keep public claims aligned with the app's PRD and Play listing:
   controller/contact and international-transfer sections current.
 - The Licenses page must stay self-contained. Do **not** reference files or source paths
   from the private app repository (for example `THIRD_PARTY_NOTICES.md`, `LICENSE`, or
-  `ui/...`). List components and link only to public upstream license pages. The same
-  ban applies to every public page, not just Licenses.
+  `ui/...`). List components and link only to public upstream license pages.
+  `tools/check_site.py` enforces this ban on every HTML page, not just Licenses.
 
 ## Assets
 
