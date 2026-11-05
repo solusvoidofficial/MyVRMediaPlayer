@@ -3,8 +3,8 @@
 
 Checks:
   1. Every local href/src resolves to a file (directory URLs -> index.html).
-  2. Fragment links point at an id in the target page.
-  3. Forbidden private-repo references are absent from the legal pages.
+  2. Fragment links, including same-page ones, point at an id in the target page.
+  3. Forbidden private-repo references are absent from every HTML page.
   4. Required public copy/sections are present.
 
 No dependencies; run from anywhere: python tools/check_site.py
@@ -21,38 +21,32 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parent.parent
 SKIP_SCHEMES = {"http", "https", "mailto", "tel", "data", "javascript"}
 
-FORBIDDEN = {
-    "licenses/index.html": [
-        r"THIRD_PARTY_NOTICES\.md",
-        # A bare LICENSE reference (the private repo file). The public Apache URL
-        # /licenses/LICENSE-2.0 is allowed: it is an upstream license link.
-        r"(?<![\w./-])LICENSE(?![\w./-])",
-        r"(?<![\w.])ui/",
-    ],
-    "privacy/index.html": [
-        r"THIRD_PARTY_NOTICES\.md",
-        r"(?<![\w./-])LICENSE(?![\w./-])",
-        r"(?<![\w.])ui/",
-    ],
-}
+# Applied to every *.html page. A bare LICENSE reference is the private repo file;
+# the public Apache URL /licenses/LICENSE-2.0 is allowed because it is preceded by /.
+FORBIDDEN_PATTERNS = [
+    r"THIRD_PARTY_NOTICES\.md",
+    r"(?<![\w./-])LICENSE(?![\w./-])",
+    r"(?<![\w.])ui/",
+]
 
 REQUIRED = {
     "licenses/index.html": [
+        "Playback engines",
+        "Consolidated third-party notices",
+        "Google SDK components",
         "Android Software Development Kit License",
-        "Play Billing Library + KTX",
-        "9.1.0",
-        "Google Mobile Ads SDK (GMA Next-Gen)",
-        "1.6.0",
-        "User Messaging Platform (UMP)",
-        "4.0.0",
+        "Play Billing Library",
+        "Google Mobile Ads SDK",
+        "User Messaging Platform",
         "Play Integrity",
+        "Build/test-only tools",
         "Apache License",
         "Version 2.0, January 2004",
         "Benchmark",
         "Espresso",
         "JUnit",
         "build/test-only",
-        "November 5, 2026",
+        "Last updated",
     ],
     "privacy/index.html": [
         "canRequestAds()",
@@ -67,7 +61,7 @@ REQUIRED = {
         "international transfers",
         "GitHub",
         "Cloudflare",
-        "November 5, 2026",
+        "Last updated",
     ],
     "index.html": [
         "User Messaging Platform",
@@ -77,7 +71,6 @@ REQUIRED = {
     "README.md": [
         "limited-ads",
         "US-state",
-        "THIRD_PARTY_NOTICES.md",
     ],
 }
 
@@ -123,7 +116,7 @@ def resolve(page: Path, raw: str) -> tuple[Path, str] | None:
         target = page.parent / path
     if path.endswith("/") or target.is_dir():
         target = target / "index.html"
-    return target.resolve(), parts.fragment
+    return target.resolve(), unquote(parts.fragment)
 
 
 def main() -> int:
@@ -133,9 +126,15 @@ def main() -> int:
 
     for page in pages:
         rel = page.relative_to(ROOT).as_posix()
+        text = page.read_text(encoding="utf-8")
         parser = parse(page)
         cache[page.resolve()] = parser
         for raw in parser.links:
+            if raw.startswith("#"):
+                fragment = unquote(raw[1:])
+                if fragment and fragment not in parser.ids:
+                    failures.append(f"{rel}: missing fragment #{fragment} in {rel}")
+                continue
             resolved = resolve(page, raw)
             if resolved is None:
                 continue
@@ -154,9 +153,7 @@ def main() -> int:
                         f"{target.relative_to(ROOT).as_posix()}"
                     )
 
-    for rel, patterns in FORBIDDEN.items():
-        text = (ROOT / rel).read_text(encoding="utf-8")
-        for pattern in patterns:
+        for pattern in FORBIDDEN_PATTERNS:
             match = re.search(pattern, text)
             if match:
                 failures.append(f"{rel}: forbidden reference {match.group(0)!r}")
