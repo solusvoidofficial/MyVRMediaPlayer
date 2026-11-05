@@ -68,6 +68,10 @@ REQUIRED = {
         "limited",
         "Remove Ads",
     ],
+    "terms/index.html": [
+        "Privacy §10",
+        "SolusVoid-operated server-side component",
+    ],
     "README.md": [
         "limited-ads",
         "US-state",
